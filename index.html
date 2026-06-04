@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Janga Prajwal – AI & Data Science, Frontend Development">
+  <title>Prajwal Janga — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Dot wave background -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">PJ<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- Hero -->
+    <section id="hero" class="hero-section">
+      <div class="hero-split">
+        <!-- Left: profile photo -->
+        <div class="hero-photo-wrapper" id="heroPhoto">
+          <div class="hero-photo-frame">
+            <img src="profile.png" alt="Janga Prajwal">
+          </div>
+        </div>
+        <!-- Right: text content -->
+        <div class="hero-text">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Janga Prajwal</h1>
+          <p class="hero-title">AI &amp; Data Science · Frontend Developer</p>
+          <p class="hero-summary">
+            Computer Science undergraduate specializing in Artificial Intelligence and Data Science.
+            Passionate about building intelligent systems and beautiful interfaces.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-label">01</div>
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-split">
+          <!-- Photo on left with reveal animation -->
+          <div class="about-photo-wrapper" id="aboutPhoto">
+            <div class="about-photo-ring">
+              <div class="about-photo-frame">
+                <img src="profile.png" alt="Janga Prajwal">
+              </div>
+            </div>
+          </div>
+
+          <!-- Content on right -->
+          <div class="about-right">
+            <div class="about-text">
+              <p>
+                I'm a Computer Science undergraduate at <strong>Bonam Venkata Chalamayya Institute of Technology and Science</strong>,
+                specializing in AI &amp; Data Science. I have hands‑on experience in AI projects, data analysis,
+                internships, and modern frontend technologies.
+              </p>
+              <p>
+                I'm seeking entry‑level roles in <strong>Data Analytics</strong>, <strong>Data Science</strong>,
+                or <strong>Frontend Development</strong> where I can apply my skills to solve real‑world problems.
+              </p>
+            </div>
+            <div class="about-details">
+              <div class="detail-card">
+                <span class="detail-label">Education</span>
+                <span class="detail-value">B.Tech CSE (AI & DS)</span>
+                <span class="detail-sub">2023 – 2027 · CGPA 7.0</span>
+              </div>
+              <div class="detail-card">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Andhra Pradesh, India</span>
+              </div>
+              <div class="detail-card">
+                <span class="detail-label">Focus</span>
+                <span class="detail-value">AI · ML · Data · Frontend</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-label">02</div>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3 class="skill-group-title">Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title">Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title">Libraries & Frameworks</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Scikit‑learn</span>
+              <span class="skill-tag">React</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-title">Tools & Platforms</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Kaggle</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-label">03</div>
+        <h2 class="section-title">Projects</h2>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <h3 class="project-name">Car Model Detection Using Generative AI</h3>
+          </div>
+          <p class="project-desc">
+            Built an ML + Generative AI system to detect car models from images and display their specifications
+            using image classification. Trained and tested with modern AI techniques, and developed an interactive
+            demo interface for real-time usage.
+          </p>
+          <div class="project-tech">
+            <span>Machine Learning</span>
+            <span>Streamlit</span>
+            <span>Kaggle</span>
+            <span>VS Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-label">04</div>
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2 Months Internship</span>
+              <h3 class="timeline-title">Data Analytics Intern</h3>
+              <ul class="timeline-details">
+                <li>Hands‑on experience in data analysis concepts and tools</li>
+                <li>Worked on dataset cleaning, visualization, and insight generation</li>
+                <li>Enhanced analytical and problem‑solving skills through real‑time tasks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:4rem;">Certifications</h2>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon">📜</div>
+            <h4>Python Full Stack Developer</h4>
+            <p>EduSkills</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">📊</div>
+            <h4>Data Science</h4>
+            <p>EduSkills</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">☁️</div>
+            <h4>Cloud Computing</h4>
+            <p>NPTEL</p>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:4rem;">Hackathons</h2>
+        <div class="hack-grid">
+          <div class="hack-card">
+            <span class="hack-icon">🤖</span>
+            <span>Generative AI Hackathon</span>
+          </div>
+          <div class="hack-card">
+            <span class="hack-icon">⛓️</span>
+            <span>Blockchain Hackathon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container contact-container">
+        <div class="section-label">05</div>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-subtitle">
+          I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
+          my inbox is always open.
+        </p>
+        <div class="contact-grid">
+          <a href="mailto:prajwaljanga454@gmail.com" class="contact-card" id="contact-email">
+            <div class="contact-icon">✉</div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">prajwaljanga454@gmail.com</span>
+          </a>
+          <a href="tel:+919677733488" class="contact-card" id="contact-phone">
+            <div class="contact-icon">📞</div>
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+91 96777 33488</span>
+          </a>
+          <a href="https://github.com" target="_blank" class="contact-card" id="contact-github">
+            <div class="contact-icon">⌨</div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">View Profile →</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-card" id="contact-linkedin">
+            <div class="contact-icon">💼</div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Connect →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Designed & Built by <strong>Janga Prajwal</strong> · 2026</p>
+    </footer>
+
+  </main>
+
+  <script src="particles.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
