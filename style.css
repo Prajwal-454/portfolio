@@ -254,7 +254,7 @@ main { position: relative; z-index: 1; }
 
 .section:hover .section-title::after { width: 90px; }
 
-/* ===== Hero — Split Layout ===== */
+/* ===== Hero — Centered Layout ===== */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -265,12 +265,13 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-split {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 1000px;
+  text-align: center;
+  max-width: 800px;
   width: 100%;
+  gap: 2.5rem;
 }
 
 /* Hero Profile Photo */
@@ -292,13 +293,13 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-photo-frame {
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #fff;
   box-shadow:
-    0 8px 35px rgba(0, 0, 0, 0.1),
+    0 10px 45px rgba(0, 0, 0, 0.12),
     0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
@@ -310,7 +311,7 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-text {
-  text-align: left;
+  text-align: center;
 }
 
 .hero-greeting {
@@ -354,7 +355,7 @@ main { position: relative; z-index: 1; }
   font-weight: 400;
   line-height: 1.85;
   max-width: 520px;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   opacity: 0;
   transform: translateY(30px);
   animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
@@ -363,6 +364,7 @@ main { position: relative; z-index: 1; }
 .hero-actions {
   display: flex;
   gap: 1rem;
+  justify-content: center;
   flex-wrap: wrap;
   opacity: 0;
   transform: translateY(25px);
@@ -976,18 +978,10 @@ main { position: relative; z-index: 1; }
   .menu-toggle { display: flex; }
   .mobile-menu { display: flex; }
 
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    justify-items: center;
-    text-align: center;
-  }
   .hero-photo-frame {
-    width: 140px;
-    height: 140px;
+    width: 220px;
+    height: 220px;
   }
-  .hero-text { text-align: center; }
-  .hero-actions { justify-content: center; }
   .hero-name { font-size: clamp(2.4rem, 11vw, 3.8rem); }
 
   .about-split {
