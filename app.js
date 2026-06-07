@@ -1,3 +1,5 @@
+import { animate, stagger, splitText } from 'animejs';
+
 (() => {
   // --- Navbar scroll effect ---
   const navbar = document.getElementById('navbar');
@@ -125,5 +127,25 @@
     btn.addEventListener('mouseleave', () => {
       btn.style.transform = '';
     });
+  });
+
+  // --- Anime.js Text Animation for Headers & Buttons ---
+  const { chars } = splitText('h2, .btn', { words: false, chars: true });
+
+  animate(chars, {
+    // Property keyframes
+    y: [
+      { to: '-2.75rem', ease: 'outExpo', duration: 600 },
+      { to: 0, ease: 'outBounce', duration: 800, delay: 100 }
+    ],
+    // Property specific parameters
+    rotate: {
+      from: '-1turn',
+      delay: 0
+    },
+    delay: stagger(50),
+    ease: 'inOutCirc',
+    loopDelay: 1000,
+    loop: true
   });
 })();
