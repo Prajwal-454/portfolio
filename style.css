@@ -642,6 +642,13 @@ main { position: relative; z-index: 1; }
   gap: 1.5rem;
   width: max-content;
   will-change: transform;
+  opacity: 1;
+}
+
+.carousel-track.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .project-card {

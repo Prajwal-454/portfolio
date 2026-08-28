@@ -155,46 +155,46 @@ import { animate, stagger, splitText } from 'animejs';
 
     if (!prefersReducedMotion) {
       const cards = carouselTrack.querySelectorAll('.project-card');
-      const originalCount = cards.length / 2;
       const speed = 0.5;
       let position = 0;
       let paused = false;
-      let animating = true;
+      let resetting = false;
 
-      function getHalfWidth() {
-        if (originalCount === 0) return 0;
-        let totalGap = 0;
-        for (let i = 0; i < originalCount; i++) {
-          const card = cards[i];
-          const style = getComputedStyle(card);
-          totalGap += parseFloat(style.marginRight || 0);
-        }
-        const gap = parseFloat(getComputedStyle(carouselTrack).gap) || 24;
-        totalGap += gap * (originalCount - 1);
-
+      function getTotalWidth() {
         let w = 0;
-        for (let i = 0; i < originalCount; i++) {
-          w += cards[i].offsetWidth;
-        }
-        return w + totalGap;
+        const gap = parseFloat(getComputedStyle(carouselTrack).gap) || 24;
+        cards.forEach(card => { w += card.offsetWidth; });
+        return w + gap * (cards.length - 1);
       }
 
       function animate() {
-        if (!paused && animating) {
+        if (!paused && !resetting) {
           position -= speed;
-          const halfWidth = getHalfWidth();
-          if (halfWidth > 0 && Math.abs(position) >= halfWidth) {
-            position += halfWidth;
+          const totalWidth = getTotalWidth();
+          if (totalWidth > 0 && Math.abs(position) >= totalWidth) {
+            resetting = true;
+            carouselTrack.style.transition = 'opacity 0.2s ease';
+            carouselTrack.style.opacity = '0';
+            setTimeout(() => {
+              position = 0;
+              carouselTrack.style.transform = `translateX(0px)`;
+              requestAnimationFrame(() => {
+                carouselTrack.style.opacity = '1';
+                setTimeout(() => {
+                  carouselTrack.style.transition = '';
+                  resetting = false;
+                }, 200);
+              });
+            }, 200);
+          } else {
+            carouselTrack.style.transform = `translateX(${position}px)`;
           }
-          carouselTrack.style.transform = `translateX(${position}px)`;
         }
         requestAnimationFrame(animate);
       }
 
       carouselTrack.addEventListener('mouseenter', () => { paused = true; });
       carouselTrack.addEventListener('mouseleave', () => { paused = false; });
-
-      // Also handle touch
       carouselTrack.addEventListener('touchstart', () => { paused = true; }, { passive: true });
       carouselTrack.addEventListener('touchend', () => { paused = false; }, { passive: true });
 
