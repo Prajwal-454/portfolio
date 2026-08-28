@@ -167,25 +167,34 @@ import { animate, stagger, splitText } from 'animejs';
         return w + gap * (cards.length - 1);
       }
 
+      function getStartOffset() {
+        return carouselTrack.parentElement.offsetWidth;
+      }
+
+      position = getStartOffset();
+      carouselTrack.style.transform = `translateX(${position}px)`;
+
       function animate() {
         if (!paused && !resetting) {
           position -= speed;
           const totalWidth = getTotalWidth();
-          if (totalWidth > 0 && Math.abs(position) >= totalWidth) {
+          const lastCardExit = -(getTotalWidth() - cards[cards.length - 1].offsetWidth -
+            (parseFloat(getComputedStyle(carouselTrack).gap) || 24));
+          if (totalWidth > 0 && position <= lastCardExit) {
             resetting = true;
-            carouselTrack.style.transition = 'opacity 0.2s ease';
+            carouselTrack.style.transition = 'opacity 0.25s ease';
             carouselTrack.style.opacity = '0';
             setTimeout(() => {
-              position = 0;
-              carouselTrack.style.transform = `translateX(0px)`;
+              position = getStartOffset();
+              carouselTrack.style.transform = `translateX(${position}px)`;
               requestAnimationFrame(() => {
                 carouselTrack.style.opacity = '1';
                 setTimeout(() => {
                   carouselTrack.style.transition = '';
                   resetting = false;
-                }, 200);
+                }, 250);
               });
-            }, 200);
+            }, 250);
           } else {
             carouselTrack.style.transform = `translateX(${position}px)`;
           }
