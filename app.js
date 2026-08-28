@@ -71,7 +71,6 @@ import { animate, stagger, splitText } from 'animejs';
   });
 
   const singleRevealSelectors = [
-    '.project-card',
     '.timeline-item',
     '.hack-card',
     '.about-text',
@@ -148,4 +147,58 @@ import { animate, stagger, splitText } from 'animejs';
     loopDelay: 1000,
     loop: true
   });
+
+  // --- Infinite Carousel ---
+  const carouselTrack = document.getElementById('carouselTrack');
+  if (carouselTrack) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      const cards = carouselTrack.querySelectorAll('.project-card');
+      const originalCount = cards.length / 2;
+      const speed = 0.5;
+      let position = 0;
+      let paused = false;
+      let animating = true;
+
+      function getHalfWidth() {
+        if (originalCount === 0) return 0;
+        let totalGap = 0;
+        for (let i = 0; i < originalCount; i++) {
+          const card = cards[i];
+          const style = getComputedStyle(card);
+          totalGap += parseFloat(style.marginRight || 0);
+        }
+        const gap = parseFloat(getComputedStyle(carouselTrack).gap) || 24;
+        totalGap += gap * (originalCount - 1);
+
+        let w = 0;
+        for (let i = 0; i < originalCount; i++) {
+          w += cards[i].offsetWidth;
+        }
+        return w + totalGap;
+      }
+
+      function animate() {
+        if (!paused && animating) {
+          position -= speed;
+          const halfWidth = getHalfWidth();
+          if (halfWidth > 0 && Math.abs(position) >= halfWidth) {
+            position += halfWidth;
+          }
+          carouselTrack.style.transform = `translateX(${position}px)`;
+        }
+        requestAnimationFrame(animate);
+      }
+
+      carouselTrack.addEventListener('mouseenter', () => { paused = true; });
+      carouselTrack.addEventListener('mouseleave', () => { paused = false; });
+
+      // Also handle touch
+      carouselTrack.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+      carouselTrack.addEventListener('touchend', () => { paused = false; }, { passive: true });
+
+      requestAnimationFrame(animate);
+    }
+  }
 })();
