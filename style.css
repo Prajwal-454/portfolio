@@ -715,6 +715,50 @@ main { position: relative; z-index: 1; }
   border-color: #ccc;
 }
 
+.project-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  padding: 0.65rem 1.6rem;
+  background: #111;
+  color: #fff;
+  border: 2px solid #111;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-link:hover {
+  background: transparent;
+  color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-link-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-link:hover .project-link-icon {
+  transform: scale(1.15);
+}
+
 /* ===== Experience / Timeline ===== */
 .timeline {
   position: relative;
