@@ -639,7 +639,9 @@ main { position: relative; z-index: 1; }
 
 .carousel-track {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: row;
+  column-gap: 1.5rem;
+  row-gap: 0;
   width: max-content;
   will-change: transform;
   opacity: 1;
